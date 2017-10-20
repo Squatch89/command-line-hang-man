@@ -1,0 +1,22 @@
+{
+  "name": "command-line-hang-man",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squatch89/command-line-hang-man.git"
+  },
+  "author": "Gene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Squatch89/command-line-hang-man/issues"
+  },
+  "homepage": "https://github.com/Squatch89/command-line-hang-man#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0"
+  }
+}
