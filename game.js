@@ -1,5 +1,7 @@
 //this is where prompt or inquirer will be
 const inquirer = require('inquirer');
+const Letter = require('./letter.js');
+const Word = require('./word.js');
 let guessesLeft = 10;
 
 function runGame() {
