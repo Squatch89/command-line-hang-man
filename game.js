@@ -11,7 +11,7 @@ gameLetter.randomWord();
 
 function runGame() {
    
-    // if (guessesLeft > 0 || gameCount > 0) {
+    if (guessesLeft > 0 || gameCount > 0) {
         inquirer.prompt([
             {
                 type: "input",
@@ -24,7 +24,10 @@ function runGame() {
             // gameCount--;
             runGame();
         });
-    // }
+    }
+    else {
+        console.log("Sorry you have lost");
+    }
 }
 
 runGame();
