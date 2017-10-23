@@ -19,7 +19,7 @@ function Letter() {
     //if the guess is not in the word lose a life
     this.userGuess = function (guess) {
         const splitWord = wordToGuess.split("");
-        console.log(splitWord);
+        console.log(`this is the split word from letter.js ${splitWord}`);
         
         if (splitWord.includes(guess) === true) {
             for (let i = 0; i < splitWord.length; i++) {
