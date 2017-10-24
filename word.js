@@ -32,11 +32,7 @@ function runGame() {
         ]).then(function (answers) {
             console.log(`this is the answers ${answers.userGuess}`);
             gameWord.guess(answers.userGuess);
-            runGame();
             if (gameLetter.underscore.join("") === gameLetter.wordToGuess) {
-                gameLetter.randomWord();
-                gameLetter.chances = 10;
-                guessedLetters = [];
                 inquirer.prompt([
                     {
                         type: "input",
@@ -45,20 +41,24 @@ function runGame() {
                     }
                 ]).then(function(answers) {
                     if (answers.play === "y") {
-                       
+                        gameLetter.newWord();
+                        gameLetter.randomWord();
+                        gameLetter.chances = 10;
+                        guessedLetters = [];
                         runGame();
                     }
                     else {
                         console.log("Thank you for playing");
                     }
-                })
+                });
             }
+            else {
+                runGame();
+            }
+            
         });
     }
     else {
-        gameLetter.randomWord();
-        gameLetter.chances = 10;
-        guessedLetters = [];
         inquirer.prompt([
             {
                 type: "input",
@@ -67,10 +67,13 @@ function runGame() {
             }
         ]).then(function(answers) {
             if (answers.play === "y") {
-               
+                gameLetter.newWord();
+                gameLetter.randomWord();
+                gameLetter.chances = 10;
+                guessedLetters = [];
                 runGame();
             }
-            else {
+            else  {
                 console.log("Thank you for playing");
             }
         })

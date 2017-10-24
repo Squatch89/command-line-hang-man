@@ -1,21 +1,25 @@
 const wordChoices = ["banana", "apple", "carrot", "cheese", "pear"];
-const wordToGuess = wordChoices[Math.floor(Math.random() * (wordChoices.length))];
+// let wordToGuess = wordChoices[Math.floor(Math.random() * (wordChoices.length))];
 let wins = 0;
 let losses = 0;
-let chances = 10;
+// let chances = 10;
 let underscore;
 
 function Letter() {
     
-    this.chances = chances;
-    this.wordToGuess = wordToGuess;
+    this.chances = 10;
+    this.wordToGuess = wordChoices[Math.floor(Math.random() * (wordChoices.length))];
     this.underscore = underscore;
     
+    this.newWord = function() {
+        this.wordToGuess = wordChoices[Math.floor(Math.random() * (wordChoices.length))];
+    };
+    
     this.randomWord = function () {
-        console.log(wordToGuess);
+        console.log(this.wordToGuess);
         //this is going to take in the word and convert it to _ _ _ _ _
         this.underscore = Array.from('_'.repeat(this.wordToGuess.length));
-        // console.log(underscore.join(' '));
+        console.log(this.underscore.join(' '));
     };
     
     
@@ -24,7 +28,7 @@ function Letter() {
     //if the letter guessed is in the word replace the _ with the letter
     //if the guess is not in the word lose a guess
     this.userGuess = function (guess) {
-        const splitWord = wordToGuess.split("");
+        const splitWord = this.wordToGuess.split("");
         console.log(`this is the split word from letter.js ${splitWord}`);
         
         if (splitWord.includes(guess) === true) {
