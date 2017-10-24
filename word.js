@@ -34,6 +34,9 @@ function runGame() {
             gameWord.guess(answers.userGuess);
             runGame();
             if (gameLetter.underscore.join("") === gameLetter.wordToGuess) {
+                gameLetter.randomWord();
+                gameLetter.chances = 10;
+                guessedLetters = [];
                 inquirer.prompt([
                     {
                         type: "input",
@@ -42,9 +45,7 @@ function runGame() {
                     }
                 ]).then(function(answers) {
                     if (answers.play === "y") {
-                        gameLetter.randomWord();
-                        gameLetter.chances = 10;
-                        guessedLetters = [];
+                       
                         runGame();
                     }
                     else {
@@ -55,6 +56,9 @@ function runGame() {
         });
     }
     else {
+        gameLetter.randomWord();
+        gameLetter.chances = 10;
+        guessedLetters = [];
         inquirer.prompt([
             {
                 type: "input",
@@ -63,9 +67,7 @@ function runGame() {
             }
         ]).then(function(answers) {
             if (answers.play === "y") {
-                gameLetter.randomWord();
-                gameLetter.chances = 10;
-                guessedLetters = [];
+               
                 runGame();
             }
             else {
